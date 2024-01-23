@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/Empleado/EmpleadoCRUD.js"></script>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Datos del Empleado</h1>
+            <p>Ingrese los datos solicitados.</p>
+        </div>
+        <hr />
+    </div>
+
+    <form>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="invisible" type="text" id="txtIdEmpleado" name="txtIdEmpleado" placeholder="Id del Empleado" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control" type="text" id="txtNomina" name="txtNomina" placeholder="Numero de Nomina" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control" type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control" type="text" id="txtApellidoP" name="txtApellidoP" placeholder="Apellido Paterno" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control" type="text" id="txtApellidoM" name="txtApellidoM" placeholder="Apellido Materno" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select id="ddlEstados" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-1">
+            <button class="btn btn-success" onclick="Add()">Agregar</button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-danger" onclick="viewGetAll()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Detalle</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+                            <h5>
+                                Acción completada con éxito
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary btn-lg" onclick="viewGetAll()">Regresar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function viewGetAll() {
+        window.location.href = '@Url.Action("GetAll", "Empleado")';
+    }
+</script>
